@@ -6,56 +6,94 @@
 <title>China Source Logistics</title>
 
 <style>
-body{margin:0;font-family:Arial;background:#f5f7fb}
+body{
+margin:0;
+font-family:-apple-system,BlinkMacSystemFont;
+background:#f5f7fb;
+}
 
 /* NAV */
 .nav{
-display:flex;justify-content:space-between;
-padding:15px;background:#0f3c88;color:white;
+display:flex;
+justify-content:space-between;
+padding:15px 20px;
+background:#0f3c88;
+color:white;
+font-weight:bold;
 }
 
 /* HERO */
 .hero{
-background:#0f3c88;color:white;
-padding:80px 20px;text-align:center;
+background:linear-gradient(135deg,#0f3c88,#1e63ff);
+color:white;
+padding:100px 20px;
+text-align:center;
+}
+
+.hero h1{
+font-size:32px;
+margin-bottom:10px;
+}
+
+.hero p{
+opacity:0.9;
 }
 
 /* SECTION */
-.section{padding:30px 20px}
+.section{
+padding:25px 20px;
+}
 
+/* CARD */
 .card{
-background:white;padding:20px;margin:10px 0;
-border-radius:10px;
+background:white;
+padding:18px;
+border-radius:15px;
+margin:10px 0;
+box-shadow:0 5px 20px rgba(0,0,0,0.08);
 }
 
-/* FORM */
+/* INPUT */
 input,select,textarea{
-width:100%;padding:12px;margin:10px 0;
-border-radius:8px;border:1px solid #ccc;
+width:100%;
+padding:14px;
+margin:10px 0;
+border-radius:10px;
+border:1px solid #ddd;
+font-size:16px;
 }
 
+/* BUTTON */
 button{
-width:100%;padding:12px;
-background:#1e63ff;color:white;
-border:none;border-radius:8px;
+width:100%;
+padding:14px;
+background:linear-gradient(135deg,#1e63ff,#4facfe);
+color:white;
+border:none;
+border-radius:12px;
+font-size:16px;
+font-weight:bold;
+margin-top:10px;
 }
 
 /* RESULT */
 .result{
-font-size:18px;color:#0f3c88;margin-top:10px;
-}
-
-/* ORDER LIST */
-.order{
-background:white;padding:10px;margin:5px 0;
-border-radius:8px;
+margin-top:10px;
+font-size:18px;
+color:#0f3c88;
+font-weight:bold;
 }
 
 /* WHATSAPP */
 .whatsapp{
-position:fixed;bottom:20px;right:20px;
-background:#25D366;padding:16px;
-border-radius:50%;color:white;
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+padding:16px;
+border-radius:50%;
+color:white;
+font-size:20px;
 }
 </style>
 </head>
@@ -63,15 +101,17 @@ border-radius:50%;color:white;
 <body>
 
 <div class="nav">
-<b>China Source</b>
+China Source
 </div>
 
 <div class="hero">
 <h1>China to Guyana Shipping</h1>
-<p>Fast & Affordable Logistics Service</p>
+<p>Fast • Reliable • Affordable</p>
 </div>
 
 <div class="section">
+
+<div class="card">
 <h2>Shipping Calculator</h2>
 
 <select id="type">
@@ -91,10 +131,6 @@ border-radius:50%;color:white;
 <button onclick="send()">Send Order</button>
 </div>
 
-<!-- ORDER HISTORY -->
-<div class="section">
-<h2>Recent Orders</h2>
-<div id="orders"></div>
 </div>
 
 <a class="whatsapp" href="https://wa.me/5926638049">💬</a>
@@ -122,34 +158,10 @@ let product=document.getElementById("product").value;
 let name=document.getElementById("name").value;
 let phone=document.getElementById("phone").value;
 
-let order={
-name:name,
-phone:phone,
-type:type,
-weight:weight,
-price:price
-};
-
-let orders=JSON.parse(localStorage.getItem("orders"))||[];
-orders.push(order);
-localStorage.setItem("orders",JSON.stringify(orders));
-
-loadOrders();
-
 let text=`NEW ORDER:%0AName:${name}%0APhone:${phone}%0AType:${type}%0AWeight:${weight}kg%0APrice:$${price}%0AProduct:${product}`;
+
 window.open(`https://wa.me/5926638049?text=${text}`);
 }
-
-function loadOrders(){
-let orders=JSON.parse(localStorage.getItem("orders"))||[];
-let html="";
-orders.slice(-5).reverse().forEach(o=>{
-html+=`<div class="order">${o.name} - ${o.weight}kg - $${o.price}</div>`;
-});
-document.getElementById("orders").innerHTML=html;
-}
-
-loadOrders();
 </script>
 
 </body>
