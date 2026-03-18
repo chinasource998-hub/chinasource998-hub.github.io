@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dashboard</title>
+
+<style>
+body{margin:0;font-family:Arial;background:#f5f7fb}
+.nav{background:#0f3c88;color:white;padding:15px}
+.section{padding:20px}
+.card{background:white;padding:20px;margin:10px 0;border-radius:10px}
+input,select{width:100%;padding:10px;margin:10px 0}
+button{width:100%;padding:10px;background:#1e63ff;color:white;border:none}
+</style>
+
+</head>
+
+<body>
+
+<div class="nav">
+ChinaSourceGY Dashboard
+</div>
+
+<div class="section">
+
+<div class="card">
+<h3>Shipping Calculator</h3>
+
+<select id="type">
+<option value="air">Air Freight</option>
+<option value="sea">Sea Freight</option>
+</select>
+
+<input id="weight" placeholder="Weight (kg)">
+
+<button onclick="calc()">Calculate</button>
+
+<div id="result"></div>
+
+<button onclick="send()">Send via WhatsApp</button>
+
+</div>
+
+</div>
+
+<script>
+let price=0;
+
+function calc(){
+let w=document.getElementById("weight").value;
+let type=document.getElementById("type").value;
+
+if(type=="air"){
+price=w*6;
+}else{
+price=w*2;
+}
+
+document.getElementById("result").innerHTML="Price: $"+price;
+}
+
+function send(){
+let w=document.getElementById("weight").value;
+let text=`Shipping:%0AWeight:${w}kg%0APrice:$${price}`;
+window.open(`https://wa.me/5926638049?text=${text}`);
+}
+</script>
+
+</body>
+</html>
