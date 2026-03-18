@@ -3,50 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>China Source Logistics</title>
+<title>ChinaSourceGY Logistics</title>
 
 <style>
-body{margin:0;font-family:-apple-system;background:#f5f7fb}
+body{margin:0;font-family:Arial;background:#f5f7fb}
 
-/* VIDEO HERO */
+/* HERO */
 .hero{
-position:relative;
-height:100vh;
-overflow:hidden;
-}
-
-.hero video{
-position:absolute;
-top:0;
-left:0;
-width:100%;
-height:100%;
-object-fit:cover;
-}
-
-/* OVERLAY */
-.overlay{
-position:absolute;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.5);
-}
-
-/* TEXT */
-.hero-content{
-position:absolute;
-top:50%;
-left:50%;
-transform:translate(-50%,-50%);
+background:url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d');
+background-size:cover;
 color:white;
+padding:100px 20px;
 text-align:center;
 }
 
-.hero-content h1{
-font-size:32px;
-}
+.hero h1{font-size:32px}
 
 .btn{
 background:#1e63ff;
@@ -69,7 +40,7 @@ border-radius:10px;
 }
 
 /* FORM */
-input,textarea,select{
+input,select{
 width:100%;
 padding:12px;
 margin:10px 0;
@@ -101,52 +72,86 @@ color:white;
 
 <body>
 
-<!-- VIDEO HERO -->
+<!-- HERO -->
 <div class="hero">
-
-<video autoplay muted loop playsinline>
-<source src="https://cdn.coverr.co/videos/coverr-plane-takeoff-1571/1080p.mp4" type="video/mp4">
-</video>
-
-<div class="overlay"></div>
-
-<div class="hero-content">
-<h1>China to Guyana Shipping</h1>
-<p>Fast • Reliable • Affordable</p>
-<a class="btn" href="#quote">Get Quote</a>
-</div>
-
+<h1>Your Goods, Our Priority</h1>
+<p>Fast & Secure Shipping from China to Guyana</p>
+<a class="btn" href="#calc">Get Started</a>
 </div>
 
 <!-- SERVICES -->
 <div class="section">
 <h2>Our Services</h2>
 
-<div class="card">✈️ Air Freight (5-10 days)</div>
-<div class="card">🚢 Sea Freight (Bulk shipping)</div>
-<div class="card">📦 Consolidation Service</div>
+<div class="card">🚀 Express Shipping – Fast delivery worldwide</div>
+<div class="card">📦 Package Consolidation – Save shipping cost</div>
+<div class="card">🌍 Global Coverage – Worldwide network</div>
+<div class="card">🔒 Secure Handling – Safe & reliable</div>
+
 </div>
 
-<!-- FORM -->
-<div class="section" id="quote">
-<h2>Get a Quote</h2>
+<!-- CALCULATOR -->
+<div class="section" id="calc">
+<h2>Get Instant Shipping Quote</h2>
 
-<input id="name" placeholder="Your Name">
-<input id="phone" placeholder="WhatsApp Number">
-<textarea id="product" placeholder="Product link"></textarea>
+<input id="weight" placeholder="Weight (kg)">
+<input id="value" placeholder="Package Value ($)">
 
-<button onclick="send()">Send Inquiry</button>
+<select id="type">
+<option value="air">Air Freight</option>
+<option value="sea">Sea Freight</option>
+</select>
+
+<button onclick="calc()">Calculate</button>
+
+<div id="result"></div>
+
+<button onclick="send()">Send via WhatsApp</button>
+</div>
+
+<!-- FAQ -->
+<div class="section">
+<h2>FAQ</h2>
+
+<div class="card">Q: How long does shipping take?<br>A: Air 5-10 days, Sea 3-6 weeks</div>
+<div class="card">Q: Do you handle customs?<br>A: Yes, full service included</div>
+
+</div>
+
+<!-- CONTACT -->
+<div class="section">
+<h2>Contact Us</h2>
+
+<div class="card">
+📍 Guyana<br>
+📞 WhatsApp: +592 663 8049<br>
+📧 Email: your@email.com
+</div>
+
 </div>
 
 <a class="whatsapp" href="https://wa.me/5926638049">💬</a>
 
 <script>
-function send(){
-let name=document.getElementById("name").value;
-let phone=document.getElementById("phone").value;
-let product=document.getElementById("product").value;
+let price=0;
 
-let text=`New Order:%0AName:${name}%0APhone:${phone}%0AProduct:${product}`;
+function calc(){
+let w=document.getElementById("weight").value;
+let type=document.getElementById("type").value;
+
+if(type=="air"){
+price=w*6;
+}else{
+price=w*2;
+}
+
+document.getElementById("result").innerHTML="Estimated: $"+price;
+}
+
+function send(){
+let w=document.getElementById("weight").value;
+let text=`Shipping Inquiry:%0AWeight:${w}kg%0APrice:$${price}`;
+
 window.open(`https://wa.me/5926638049?text=${text}`);
 }
 </script>
