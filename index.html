@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>China Source Logistics</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#0f3c88;
+    color:white;
+}
+
+/* MENU */
+.menu-btn{
+    position:fixed;
+    top:15px;
+    right:15px;
+    font-size:24px;
+    cursor:pointer;
+}
+
+.sidebar{
+    position:fixed;
+    right:-250px;
+    top:0;
+    width:250px;
+    height:100%;
+    background:white;
+    color:black;
+    padding:20px;
+    transition:0.3s;
+}
+
+.sidebar a{
+    display:block;
+    padding:12px 0;
+    text-decoration:none;
+    color:#333;
+    font-size:18px;
+}
+
+.sidebar.active{
+    right:0;
+}
+
+/* HERO */
+.hero{
+    padding:80px 20px;
+    text-align:center;
+}
+
+.hero h1{
+    font-size:32px;
+}
+
+.btn{
+    display:inline-block;
+    margin:10px;
+    padding:12px 20px;
+    background:#1e63ff;
+    color:white;
+    border-radius:8px;
+    text-decoration:none;
+}
+
+/* SECTION */
+.section{
+    padding:40px 20px;
+    background:white;
+    color:black;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+}
+
+.card{
+    padding:20px;
+    border-radius:10px;
+    background:#f2f2f2;
+}
+
+/* WHATSAPP */
+.whatsapp{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background:#25D366;
+    color:white;
+    padding:15px;
+    border-radius:50%;
+    text-decoration:none;
+    font-size:20px;
+}
+
+@media(max-width:768px){
+    .grid{
+        grid-template-columns:1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+<div class="sidebar" id="menu">
+    <a href="#">Home</a>
+    <a href="#">Services</a>
+    <a href="#">Calculator</a>
+    <a href="#">FAQ</a>
+    <a href="#">Contact</a>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+    <h1>Ship From China & USA to Guyana</h1>
+    <p>Fast, Reliable & Affordable Logistics Service</p>
+
+    <a class="btn" href="https://wa.me/5920000000">Get Quote</a>
+    <a class="btn" href="#">Create Account</a>
+</div>
+
+<!-- SERVICES -->
+<div class="section">
+    <h2>Our Services</h2>
+
+    <div class="grid">
+        <div class="card">
+            ✈️ Air Freight<br>
+            Fast delivery (5–10 days)
+        </div>
+
+        <div class="card">
+            🚢 Sea Freight<br>
+            Best for bulk goods
+        </div>
+
+        <div class="card">
+            📦 Consolidation<br>
+            Save shipping cost
+        </div>
+
+        <div class="card">
+            🧾 Customs Clearance<br>
+            We handle everything
+        </div>
+    </div>
+</div>
+
+<!-- WHY -->
+<div class="section">
+    <h2>Why Choose Us</h2>
+    <p>
+        ✔ Best China prices<br>
+        ✔ Door-to-door delivery<br>
+        ✔ WhatsApp support<br>
+        ✔ Easy ordering process
+    </p>
+</div>
+
+<!-- CTA -->
+<div class="hero">
+    <h2>Start Importing Today</h2>
+    <a class="btn" href="https://wa.me/5920000000">Contact on WhatsApp</a>
+</div>
+
+<!-- WHATSAPP -->
+<a class="whatsapp" href="https://wa.me/5920000000">💬</a>
+
+<script>
+function toggleMenu(){
+    document.getElementById("menu").classList.toggle("active");
+}
+</script>
+
+</body>
+</html>
