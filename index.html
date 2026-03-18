@@ -1,31 +1,183 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ChinaSourceGY</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ChinaSourceGY Logistics</title>
+
 <style>
-body{margin:0;font-family:Arial;background:#f5f7fb}
-.hero{background:#0f3c88;color:white;padding:80px;text-align:center}
-.btn{background:#1e63ff;color:white;padding:12px 20px;border-radius:8px;text-decoration:none}
-.section{padding:20px}
-.card{background:white;padding:20px;margin:10px 0;border-radius:10px}
+body{margin:0;font-family:-apple-system;background:#f5f7fb}
+
+/* HERO */
+.hero{
+background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),
+url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d');
+background-size:cover;
+color:white;
+padding:100px 20px;
+text-align:center;
+}
+
+.hero h1{font-size:32px;margin-bottom:10px}
+.hero p{opacity:0.9}
+
+.btn{
+background:#1e63ff;
+padding:12px 25px;
+border-radius:8px;
+color:white;
+text-decoration:none;
+display:inline-block;
+margin-top:10px;
+}
+
+/* SECTION */
+.section{padding:30px 20px}
+.section h2{text-align:center}
+
+/* CARD */
+.card{
+background:white;
+padding:20px;
+margin:10px 0;
+border-radius:12px;
+box-shadow:0 2px 10px rgba(0,0,0,0.05);
+}
+
+/* CALCULATOR */
+input,select{
+width:100%;
+padding:12px;
+margin:10px 0;
+border-radius:8px;
+border:1px solid #ccc;
+}
+
+button{
+width:100%;
+padding:12px;
+background:#1e63ff;
+color:white;
+border:none;
+border-radius:8px;
+}
+
+/* TESTIMONIAL */
+.review{
+background:#fff;
+padding:15px;
+margin:10px 0;
+border-radius:10px;
+}
+
+/* WHATSAPP */
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+padding:16px;
+border-radius:50%;
+color:white;
+font-size:20px;
+}
 </style>
 </head>
 
 <body>
 
+<!-- HERO -->
 <div class="hero">
-<h1>ChinaSourceGY Logistics</h1>
-<p>Ship from China to Guyana easily</p>
-<a class="btn" href="login.html">Create Free Account</a>
+<h1>China to Guyana Shipping</h1>
+<p>Fast • Reliable • Affordable Logistics Service</p>
+
+<a class="btn" href="#quote">Get a Quote</a>
+<a class="btn" href="login.html">Create Account</a>
 </div>
 
+<!-- HOW IT WORKS -->
 <div class="section">
 <h2>How It Works</h2>
-<div class="card">1️⃣ Shop from 1688 / Taobao</div>
-<div class="card">2️⃣ Send to our warehouse</div>
+
+<div class="card">1️⃣ Shop from 1688 / Taobao / Amazon</div>
+<div class="card">2️⃣ Send to our China warehouse</div>
 <div class="card">3️⃣ We ship to Guyana</div>
 </div>
+
+<!-- SERVICES -->
+<div class="section">
+<h2>Our Services</h2>
+
+<div class="card">✈️ Air Freight – 5-10 Days Fast Delivery</div>
+<div class="card">🚢 Sea Freight – Best for Bulk Shipping</div>
+<div class="card">📦 Consolidation – Save Shipping Cost</div>
+<div class="card">📄 Customs Clearance – Full Service</div>
+</div>
+
+<!-- CALCULATOR -->
+<div class="section" id="quote">
+<h2>Shipping Calculator</h2>
+
+<select id="type">
+<option value="air">Air Freight</option>
+<option value="sea">Sea Freight</option>
+</select>
+
+<input id="weight" placeholder="Weight (kg)">
+<input id="name" placeholder="Your Name">
+<input id="phone" placeholder="WhatsApp Number">
+
+<button onclick="calc()">Calculate Price</button>
+
+<div id="result"></div>
+
+<button onclick="send()">Send Order</button>
+</div>
+
+<!-- REVIEWS -->
+<div class="section">
+<h2>Customer Reviews</h2>
+
+<div class="review">⭐⭐⭐⭐⭐ Very fast shipping, trusted service</div>
+<div class="review">⭐⭐⭐⭐⭐ Best price in Guyana</div>
+<div class="review">⭐⭐⭐⭐⭐ Easy process, will use again</div>
+</div>
+
+<!-- CTA -->
+<div class="section" style="text-align:center">
+<h2>Start Shipping Today</h2>
+<a class="btn" href="https://wa.me/5926638049">Chat on WhatsApp</a>
+</div>
+
+<!-- FLOAT WHATSAPP -->
+<a class="whatsapp" href="https://wa.me/5926638049">💬</a>
+
+<script>
+let price=0;
+
+function calc(){
+let w=document.getElementById("weight").value;
+let type=document.getElementById("type").value;
+
+if(type=="air"){
+price=w*6;
+}else{
+price=w*2;
+}
+
+document.getElementById("result").innerHTML="Estimated Price: $"+price;
+}
+
+function send(){
+let name=document.getElementById("name").value;
+let phone=document.getElementById("phone").value;
+let w=document.getElementById("weight").value;
+
+let text=`New Order:%0AName:${name}%0APhone:${phone}%0AWeight:${w}kg%0APrice:$${price}`;
+
+window.open(`https://wa.me/5926638049?text=${text}`);
+}
+</script>
 
 </body>
 </html>
